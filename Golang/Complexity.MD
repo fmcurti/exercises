@@ -1,0 +1,1 @@
+The total complexity of the algorithm is O(n) since you have first to find the argmax which iterates over the array once O(n) and then compare that age with every other age,  iterating through the array once more (O(n)) since indexing into an array is O(1) this gives a total complexity of O(n + n) = O(n)
