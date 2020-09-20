@@ -4,37 +4,36 @@ type Person struct {
 	age int
 }
 
-func findOldestPerson(persons []Person) int {
-	// Returns index of the oldest person in the list -  O(n) complexity
-	var oldestIndex int = 0
-	var oldestAge int = persons[0].age
-	for i := 1; i < len(persons); i++ {
-		if oldestAge < persons[i].age {
-			oldestAge = persons[i].age
-			oldestIndex = i
-		}
-	}
-	return oldestIndex
-}
-
-func oneIsDobuleTheOthers(persons []Person) bool {
+func oneIsDoubleAgeofAnother(persons []Person) bool {
 	//Returns true if there is a person who is exactly twice as old as any other person in the list - O(2n) complexity
 
-	if len(persons) == 0 {
+	if len(persons) <= 1 {
 		return false
 	}
 
-	oldestIndex := findOldestPerson(persons) // O(n)
-	var i int = 0
-
-	for i < len(persons) { // O(n)
-		if i != oldestIndex {
-			if persons[oldestIndex].age != persons[i].age*2 {
-				break
+	for _, person := range persons {
+		for _, otherPerson := range persons {
+			if person.age == 2*otherPerson.age {
+				return true
 			}
 		}
-		i++
+	}
+	return false
+}
+
+func oneIsAtLeastDoubleAgeofAnother(persons []Person) bool {
+	//Returns true if there is a person who is exactly twice as old as any other person in the list - O(2n) complexity
+
+	if len(persons) <= 1 {
+		return false
 	}
 
-	return i == len(persons)
+	for _, person := range persons {
+		for _, otherPerson := range persons {
+			if person.age >= 2*otherPerson.age {
+				return true
+			}
+		}
+	}
+	return false
 }

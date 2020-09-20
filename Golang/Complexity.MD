@@ -1,1 +1,1 @@
-The total complexity of the algorithm is O(n) since you have first to find the argmax which iterates over the array once O(n) and then compare that age with every other age,  iterating through the array once more (O(n)) since indexing into an array is O(1) this gives a total complexity of O(n + n) = O(n)
+The complexity of the algorithm is O(n^2) since, for each person O(n) I have to go through every other person in the list O(n) giving a total of O(n * n)

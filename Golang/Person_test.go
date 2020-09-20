@@ -5,34 +5,42 @@ import (
 )
 
 func Test01True(t *testing.T) {
-	persons := []Person{{8}, {8}, {16}, {8}}
-	result := oneIsDobuleTheOthers(persons)
+	persons := []Person{{age: 4}, {age: 8}, {age: 9}}
+	result := oneIsDoubleAgeofAnother(persons)
 	if result != true {
 		t.Error("Result should be true")
 	}
 
 }
 
-func TestOnePersonShouldBeTrue(t *testing.T) {
+func Test02OnePersonShouldBeFalse(t *testing.T) {
 	persons := []Person{{8}}
-	result := oneIsDobuleTheOthers(persons)
+	result := oneIsDoubleAgeofAnother(persons)
 	if result != true {
 		t.Error("Result should be true")
 	}
 
 }
 
-func TestEmptyList(t *testing.T) {
+func Test03EmptyList(t *testing.T) {
 	persons := []Person{}
-	result := oneIsDobuleTheOthers(persons)
+	result := oneIsDoubleAgeofAnother(persons)
 	if result != false {
 		t.Error("Result should be false")
 	}
 }
 
-func TestShouldBeFalse(t *testing.T) {
-	persons := []Person{{1}, {1}, {2}, {3}}
-	result := oneIsDobuleTheOthers(persons)
+func Test04ShouldBeFalse(t *testing.T) {
+	persons := []Person{{1}, {1}, {1}, {3}}
+	result := oneIsDoubleAgeofAnother(persons)
+	if result != false {
+		t.Error("Result should be false")
+	}
+}
+
+func Test05ShouldBeFalse(t *testing.T) {
+	persons := []Person{{1}, {1}, {1}, {3}}
+	result := oneIsAtLeastDoubleAgeofAnother(persons)
 	if result != false {
 		t.Error("Result should be false")
 	}

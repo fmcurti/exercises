@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ColoredCircle from './Components/ColoredCircle.js'
-import ColorText from './Components/ColorText.js'
+import ColorForm from './Components/ColorForm.js'
 
 
 
@@ -13,7 +13,7 @@ const App = () => {
         <div>
         <ColoredCircle color={color}/>
         <h3>Type a Color!</h3> 
-        <ColorText value={color} filter={(event) => setColor(event.target.value) }/>
+        <ColorForm value={color} setColor={setColor}/>
         </div>
     )
 }
